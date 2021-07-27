@@ -58,7 +58,7 @@ def processLogs(logs, threshold):
             if newlog[r][c] != newlog[r][c+1]:
                 result.append(newlog[r][c])
 
-    # find the frequency od id's
+    # find the frequency of id's
     frequency = {}
     for f in result:
         if f in frequency:
@@ -70,7 +70,7 @@ def processLogs(logs, threshold):
     result_dictionary = dict(sorted(frequency.items(), key=lambda item: item[1], reverse=True))
     result_list = sorted(frequency.items(), key=lambda x: x[1], reverse=True)
     
-    # return results
+    # return list results
     return result_list
 
 
