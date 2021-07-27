@@ -43,11 +43,38 @@ import sys
 #  2. INTEGER threshold
 
 
-def processLogs(logs, threshold):
-    # Write your code here
+def processLogs(logs, threshold): 
+    # loop logs list and create multiple lists
+    newlog = []
+    for i in logs:
+        print(i)
+        newlog.append(i.split())
+        # newlog.extend(i.split())
+
+    # counts one time when send_user_id and recipient_user_id are the same
+    result = []
+    for r in range(0, len(newlog)):
+        for c in range(0, 2):
+            if newlog[r][c] != newlog[r][c+1]:
+                result.append(newlog[r][c])
+
+    # find the frequency od id's
+    frequency = {}
+    for f in result:
+        if f in frequency:
+            frequency[f] += 1
+        else:
+            frequency[f] = 1
+
+    # order descending
+    result_dictionary = dict(sorted(frequency.items(), key=lambda item: item[1], reverse=True))
+    result_list = sorted(frequency.items(), key=lambda x: x[1], reverse=True)
     
-    
-    
+    # return results
+    return result_list
+
+
+
     
 
 if __name__ == '__main__':
